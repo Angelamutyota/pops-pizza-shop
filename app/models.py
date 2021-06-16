@@ -23,10 +23,14 @@ class User(UserMixin, db.Model):
 
     @password.setter
     def password(self, password):
-        self.pass_secure = generate_password_hash(password)
+        self.secure_password = generate_password_hash(password)
     
     def verify_password(self,password):
-            return check_password_hash(self.pass_secure,password)
+            return check_password_hash(self.secure_password,password)
+
+    def save_u(self):
+        db.session.add(self)
+        db.session.commit()
 
 
     def __repr__(self):
@@ -50,10 +54,14 @@ class Admin (UserMixin, db.Model):
 
     @password.setter
     def password(self, password):
-        self.pass_secure = generate_password_hash(password)
+        self.secure_password = generate_password_hash(password)
     
     def verify_password(self,password):
-            return check_password_hash(self.pass_secure,password)
+            return check_password_hash(self.secure_password,password)
+
+    def save_a(self):
+            db.session.add(self)
+            db.session.commit()
 
 
 
