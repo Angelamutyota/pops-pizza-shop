@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Confirm your order </title>
+    {% endif %}
+</head>
+
+<body>
+    <!-- Content block -->
+    {% block content %}
+
+    <div class="container">
+        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+    </div>
+    {% endblock%}
+</body>
+
+</html>

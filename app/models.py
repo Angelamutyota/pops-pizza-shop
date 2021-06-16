@@ -67,7 +67,8 @@ class Role(db.Model):
     name = db.Column(db.String(255))
     users = db.relationship('User',backref = 'role',lazy="dynamic")
     admin = db.relationship('User',backref = 'role',lazy="dynamic")
-
+class Order (db.Model):
+    
 
 
     def __repr__(self):
