@@ -67,9 +67,52 @@ class Role(db.Model):
     name = db.Column(db.String(255))
     users = db.relationship('User',backref = 'role',lazy="dynamic")
     admin = db.relationship('User',backref = 'role',lazy="dynamic")
+    
+    
+    
+# class Order (db.Model):
+#     __tablename__ ='pizza'
+    
+#     large = db.Column(db.Integer, primary_key=True)
+#     medium = db.Column(db.Integer, primary_key=True)
+#     small = db.Column(db.Integer, primary_key=True)
+    
 class Order (db.Model):
     
-
+    __tablename__ ='orders'
+    
+    price_id = db.Column(db.Integer, primary_key=True)
+    pizza_type = db.Column(db.String)
+    
+    def save_order(self):
+        db.session.add(self)
+        db.session.commit()
+        
+    #displaying orders  
+    @classmethod
+    def get_orders(cls, id, type):
+        orders = Order.query.filter_by(price_id=id, pizza_type=type).all()
+        return orders
+        
+        
+class Order:
+    all_orders =[]
+    
+    def __init__(self, type, price_id):
+        self.type = type
+        self.price_id = price_id
+        
+    def save_order(self):
+        Order.all_orders.append(self)
+        
+    @classmethod
+    def get_orders(cls, id):
+        response =[]
+        for order in cls.all_orders:
+            if order.price_id == id:
+                response.append(order)
+                
+        return response
 
     def __repr__(self):
         return f'User {self.name}'
