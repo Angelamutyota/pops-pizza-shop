@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to Pop's Pizza Shop
+We have just seen you have signed up for our application and want to welcome you to the family. Please checkout our menu and enjoy making your order as much as we'll enjoy serving you.
