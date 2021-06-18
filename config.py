@@ -8,6 +8,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://angela:Angie168@localhost/pops_pizza'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
+
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
@@ -16,7 +17,6 @@ class Config:
 
 
    
-
 
 
 

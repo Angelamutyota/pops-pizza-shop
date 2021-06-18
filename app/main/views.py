@@ -1,3 +1,9 @@
+
+from wtforms import form
+from . import main
+from flask import app, render_template
+from .forms import OrderForm
+from ..models import Order
 from os import name
 from flask import render_template, redirect, url_for, abort,request
 from . import main
@@ -6,10 +12,28 @@ from ..models import User, Admin, Role
 from .. import db, photos
 from .forms import UpdateProfile
 
+Order = Order
+
 
 @main.route('/')
 def index ():
   return render_template('index.html')
+
+
+@main.route('/order',methods=['GET','POST'])
+def index():
+    title='order'
+    form = OrderForm()
+
+    if form.validate_on_submit():
+        size =form.size.data
+        toppings =form.toppings.data
+
+        new_order = Order(size, toppings)
+        new_order.save_order()
+        
+    return render_template('order.html', title = title, form = form)
+
 
 @main.route('/user/<name>')
 def profile(name):
