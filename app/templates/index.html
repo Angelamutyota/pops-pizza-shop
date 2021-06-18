@@ -1,52 +1,9 @@
-{% extends 'base.html'%}
+{% extends 'base.html'}
 {% block content %}
-
-<div class="banner-image">
-    <img src="{{url_for('static', filename='imgs/pop-pizza.jpg')}}" alt="banner-image">
-</div>
-
-<div class="row">
-
-    <div class="col">
-        <h2>Place you Order</h2>
-        <form action="" method="post">
-            {{form.hidden_tag()}}
-            <div class="order-collection">
-                <div class="image-holder">
-                    <img src="{{url_for('static', filename='imgs/toppings.jpg')}}" alt="banner-image">
-                </div>
-
-                <div class="form-group input-collection">
-                    {{form.size.label(class="pizza-size")}}
-                    {{form.size(style="list-style:none")}}
-                </div>
-
-            </div>
-            
-            <div class="order-collection">
-                <div class="image-holder">
-                    <img src="{{url_for('static', filename='imgs/toppings.jpg')}}" alt="banner-image">
-                </div>
-
-                <div class="form-group input-collection">
-                    {{form.toppings.label(class="toppings")}}
-                    {{form.toppings(style="list-style:none")}}
-                </div>
-            </div>
-            
-
-            <div class="cart-button text-center">
-                {{form.submit(class="btn btn-warning text-light")}}
-            </div>
-        </form>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Pop's Pizza Shop</h1>
+      <p class="lead">Welcome to Pop's pizza shop, where pizza is all we fly aroung.</p>
     </div>
-
-    <div class="place-order col">
-        <div class="order-display">
-            <h2>Your Cart</h2>
-        </div>
-
-    </div>
-
-</div>
+  </div>
 {% endblock %}

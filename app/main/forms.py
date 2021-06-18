@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,TextAreaField,RadioField, SubmitField
+from wtforms import StringField, SelectField, TextAreaField, SubmitField
 from wtforms.validators import Required
 
 class UpdateProfile(FlaskForm):
@@ -13,3 +14,4 @@ class OrderForm(FlaskForm):
     submit = SubmitField('Add to cart')
 
 
+    submit = SubmitField('Save')
