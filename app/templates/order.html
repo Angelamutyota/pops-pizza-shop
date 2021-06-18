@@ -3,19 +3,93 @@
 {% block content %}
 
 <div class="container-fluid">
+    <div class="banner-image">
+        <img src="{{url_for('static', filename='imgs/pop-pizza.jpg')}}" alt="banner-image">
+    </div>
+
     <div class="row">
-
         <div class="col order">
-            <div class="form-input">
 
-            </div>
-        </div>
+            <h2>Select pizza size</h2>
 
-        <div class="order-display">
-            <div class="order">
+            <div class="select-order">
+                <div class="order-type">
+                    <div class="pizza-type">
+                        <p>Large</p>
+                    </div>
+    
+                    <div class="button">
+                        <input class="btn btn-warning text-secondary" type="submit" value="Large">
+                    </div>
+
+                </div>
+
+                <div class="order-type">
+                    <div class="pizza-type">
+                        <p>Medium</p>
+                    </div>
+    
+                    <div class="button">
+                        <input class="btn btn-warning text-secondary" type="submit" value="Medium">
+                    </div>
+
+                </div>
+
+                <div class="order-type">
+                    <div class="pizza-type">
+                        <p>Small</p>
+                    </div>
+    
+                    <div class="button">
+                        <input class="btn btn-warning text-secondary" type="submit" value="Small">
+                    </div>
+
+                </div>
                 
+    
+                
+
+            </div>
+
+            <div class="select-topping">
+                <h2>
+                    Select topping
+                </h2>
+                
+                <div class="control-group">
+                    <div class="select">
+                      <select>
+                        <option>Pepperoni</option>
+                        <option>Mushroom</option>
+                        <option>Chicken</option>
+                      </select>
+                
+                    </div>
+                   
+                  </div>
+                    
+            </div>
+
+            <div class="add-to-cart">
+                <button class="btn btn-warning text-secondary" type="submit">Add to cart</button>
+            </div>
+            
+
+        </div>
+
+        <div class="order-display col">
+            <h2>Your Cart</h2>
+            <div class="order-placed">
+                
+
+            </div>
+
+            <div class="add-to-cart">
+                <button class="btn btn-warning text-secondary" type="submit">Place order</button>
             </div>
         </div>
+
+        
         
 
     </div>

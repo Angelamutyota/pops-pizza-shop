@@ -1,26 +1,35 @@
-from app import app
-from flask import render_template
+from wtforms import form
+from . import main
+from flask import app, render_template
+from .forms import OrderForm
+from ..models import Order
 
+Order = Order
 
-@app.route('/')
+@main.route('/',methods=['GET','POST'])
 def index():
-    
-    '''
-    View root page function that returns the index page and its data
-    '''
+    title='home page'
+    form = OrderForm()
 
-    # Getting popular movie
-    title = "home-page"
-    return render_template('index.html', title = title)
+    if form.validate_on_submit():
+        size =form.size.data
+        toppings =form.toppings.data
+
+        new_order = Order(size, toppings)
+        new_order.save_order()
+        
+    return render_template('index.html', title = title, form = form)
 
 
-@app.route('/checkout')
-def checkout():
-    
-    '''
-    View root page function that returns the index page and its data
-    '''
+@main.route('/order')
+def order():
+    name = None
+    form = OrderForm()
+    title = "order"
+    return render_template('order.html', title = title, name = name, form = form)
 
-    # Getting popular movie
-    title = "checkout"
-    return render_template('checkout.html', title = title)
+
+
+
+
+
