@@ -1,8 +1,14 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<div class="banner-image">
-    <img src="{{url_for('static', filename='imgs/pop-pizza.jpg')}}" alt="banner-image">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+  </head>
+
+<div class="container-fluid">
+    <div class="banner-image">
+        <img src="{{url_for('static', filename='imgs/pop-pizza.jpg')}}" alt="banner-image">
+    </div>
 </div>
 
 <div class="row">
@@ -33,7 +39,8 @@
                     {{form.toppings(style="list-style:none")}}
                 </div>
             </div>
-            
+        </div>
+    </div>
 
             <div class="cart-button text-center">
                 {{form.submit(class="btn btn-warning text-light")}}

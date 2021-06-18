@@ -84,4 +84,15 @@ class Role(db.Model):
         return f'User {self.name}'
 
 
+class Order:
+    all_orders = []
+    def __init__(self,size,toppings):
+        self.size = size
+        self.toppings = toppings
+    def save_order(self):
+        Order.all_orders.append(self)
+    @classmethod
+    def clear_orders(cls):
+        Order.all_orders.clear()
+
 
