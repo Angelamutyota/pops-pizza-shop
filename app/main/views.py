@@ -21,7 +21,7 @@ def index ():
 
 
 @main.route('/order',methods=['GET','POST'])
-def index():
+def order():
     title='order'
     form = OrderForm()
 
